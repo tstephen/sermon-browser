@@ -705,6 +705,7 @@ function sb_print_url_link($url) {
 		else {
 			$param="file_name"; }
 		$url = rawurlencode($url);
+	echo ' <span class="dashicons dashicons-format-audio"></span>';
         echo ' <a href="'.sb_display_url().sb_query_char().'download&amp;'.$param.'='.$url.'">'.__('Download', $sermon_domain).'</a>';
 	}
 	echo '</div>';
