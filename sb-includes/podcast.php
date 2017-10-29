@@ -109,13 +109,19 @@ echo '<?xml version="1.0" encoding="UTF-8"?>'."\n";
 	<itunes:author></itunes:author>
 	<description><?php echo sb_xml_entity_encode(get_bloginfo('description')) ?></description>
 	<link><?php echo sb_xml_entity_encode(site_url()) ?></link>
-	<language>en-us</language>
+	<language><?php echo str_replace("_","-",strtolower(get_locale())); ?></language>
 	<copyright></copyright>
 	<itunes:explicit>no</itunes:explicit>
 	<itunes:owner>
 		<itunes:name></itunes:name>
-		<itunes:email></itunes:email>
+		<itunes:email><?php echo get_option('admin_email') ?></itunes:email>
 	</itunes:owner>
+        <image>
+          <url>https://corshambaptists.org/wp-content/themes/cbc-2016/images/cbc-logo.png</url>
+          <title><?php echo sb_xml_entity_encode(get_bloginfo('name')) ?> Podcast</title>
+          <link>https://corshambaptists.org</link>
+        </image>
+        <itunes:image href="https://corshambaptists.org/wp-content/themes/cbc-2016/images/cbc-logo.png"/>
 
 	<lastBuildDate><?php sb_print_iso_date(isset($sermons[0]) ? $sermons[0]: time()) ?></lastBuildDate>
 	<pubDate><?php sb_print_iso_date(isset($sermons[0]) ? $sermons[0]: time()) ?></pubDate>
